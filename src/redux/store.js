@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from "redux";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { cakeReducer } from "./cake/cake-reducer";
 import { iceCreamReducer } from "./icecream/icecream-reducer";
 
@@ -7,6 +7,8 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;

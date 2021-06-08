@@ -1,5 +1,5 @@
 import React from "react";
-import { addCake, saleCake } from "../../redux/cake/cake-action";
+import { addCake, saleCake } from "../../redux/cake/cake-reducer";
 import { connect } from "react-redux";
 
 const CakeComponent = (props) => {
