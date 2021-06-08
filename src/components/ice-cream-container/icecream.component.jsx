@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   addIceCream,
   saleIceCream,
-} from "../../redux/icecream/icecream-action";
+} from "../../redux/icecream/icecream-reducer";
 
 const IceCreamComponent = (props) => {
   return (

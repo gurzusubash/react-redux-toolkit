@@ -1,20 +1,19 @@
-import { initialIceCreamState } from "./icecream-state";
-import { ADD_ICE_CREAM, SALE_ICE_CREAM } from "./icecream-action-types";
+import { initialIceCreamState as initialState } from "./icecream-state";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const iceCreamReducer = (state = initialIceCreamState, action) => {
-  switch (action.type) {
-    case ADD_ICE_CREAM:
-      return {
-        ...state,
-        noOfIceCream: state.noOfIceCream + 1,
-      };
-    case SALE_ICE_CREAM:
-      return {
-        ...state,
-        noOfIceCream: state.noOfIceCream - 1,
-        sales: state.sales + 1,
-      };
-    default:
-      return state;
-  }
-};
+const reducer = createSlice({
+  name: "iceCreamReducer",
+  initialState,
+  reducers: {
+    addIceCream: (state) => {
+      state.noOfIceCream++;
+    },
+    saleIceCream: (state) => {
+      state.noOfIceCream--;
+      state.sales++;
+    },
+  },
+});
+
+export const { addIceCream, saleIceCream } = reducer.actions;
+export const iceCreamReducer = reducer.reducer;
